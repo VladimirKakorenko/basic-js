@@ -1,4 +1,5 @@
 const { NotImplementedError } = require('../extensions/index.js');
+const {red} = require("sinon");
 
 /**
  * Given an email address, return it's domain.
@@ -10,9 +11,12 @@ const { NotImplementedError } = require('../extensions/index.js');
  * For the input 'prettyandsimple@example.com', the output should be 'example.com'
  *
  */
-function getEmailDomain(/* email */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function getEmailDomain( email ) {
+  let x = email.slice(email.indexOf('@')+1);
+
+  if (x.indexOf('@') !== -1){
+    return x.slice(x.indexOf('@')+1)
+  }else return x
 }
 
 module.exports = {
